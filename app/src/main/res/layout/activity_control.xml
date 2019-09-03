@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ControlActivity">
+        
+        <Switch
+            android:id="@+id/layout_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"/>
+
+        <LinearLayout
+            android:id="@+id/axis_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                        <SeekBar
+                            android:id="@+id/left_axis_seekbar"
+                            android:layout_margin="10dp"
+                            android:layout_width="match_parent"
+                            android:rotation="270"
+                            android:layout_height="match_parent" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                        <SeekBar
+                            android:id="@+id/right_axis_seekbar"
+                            android:layout_margin="10dp"
+                            android:layout_width="match_parent"
+                            android:rotation="270"
+                            android:layout_height="match_parent" />
+                </LinearLayout>
+
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/joystick_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+                
+        <io.github.controlwear.virtual.joystick.android.JoystickView
+            android:id="@+id/control_activity_movement_joystick"
+            xmlns:custom="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            custom:JV_buttonColor="#FF6E40"
+            custom:JV_buttonSizeRatio="10%"
+            custom:JV_borderColor="#00796B"
+            custom:JV_backgroundColor="#009688"
+            custom:JV_borderWidth="1dp"
+            custom:JV_fixedCenter="false"
+            android:layout_centerInParent="true"/>
+        </LinearLayout>
+
+</LinearLayout>
