@@ -70,7 +70,7 @@ public class ControlActivity extends AppCompatActivity {
 		rightAxisSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-				transmitter.sendPowerRequest(leftAxisSeekbar.getProgress()-100, progress-100);
+				transmitter.sendRightPowerRequest(progress-100);
 			}
 
 			@Override
@@ -81,14 +81,14 @@ public class ControlActivity extends AppCompatActivity {
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
 				rightAxisSeekbar.setProgress(100);
-				transmitter.sendPowerRequest(leftAxisSeekbar.getProgress()-100, 0);
+				transmitter.sendRightPowerRequest( 0);
 			}
 		});
 
 		leftAxisSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-				transmitter.sendPowerRequest(progress-100, rightAxisSeekbar.getProgress()-100);
+				transmitter.sendLeftPowerRequest(progress-100);
 			}
 
 			@Override
@@ -99,7 +99,7 @@ public class ControlActivity extends AppCompatActivity {
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
 				leftAxisSeekbar.setProgress(100);
-				transmitter.sendPowerRequest(0, rightAxisSeekbar.getProgress()-100);
+				transmitter.sendLeftPowerRequest(0);
 			}
 		});
 
@@ -146,7 +146,8 @@ public class ControlActivity extends AppCompatActivity {
 				}
 				leftAxis = leftAxis * strength / 100;
 				rightAxis = rightAxis * strength / 100;
-				transmitter.sendPowerRequest((int)leftAxis, (int)rightAxis);
+				transmitter.sendRightPowerRequest((int)rightAxis);
+				transmitter.sendLeftPowerRequest((int)rightAxis);
 			}
 		});
 
