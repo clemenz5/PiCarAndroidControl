@@ -20,7 +20,7 @@ import com.android.volley.toolbox.Volley;
 
 import io.github.controlwear.virtual.joystick.android.JoystickView;
 
-public class ControlActivity extends AppCompatActivity {
+public class ControlActivity extends AppCompatActivity implements RespondInterface{
 	private JoystickView movementJoystick;
 	private SeekBar leftAxisSeekbar;
 	private SeekBar rightAxisSeekbar;
@@ -147,9 +147,18 @@ public class ControlActivity extends AppCompatActivity {
 				leftAxis = leftAxis * strength / 100;
 				rightAxis = rightAxis * strength / 100;
 				transmitter.sendRightPowerRequest((int)rightAxis);
-				transmitter.sendLeftPowerRequest((int)rightAxis);
+				transmitter.sendLeftPowerRequest((int)leftAxis);
 			}
 		});
+
+	}
+
+	private void getSoundSensorData(){
+		transmitter.getSoundSensorValue(this);
+	}
+
+	@Override
+	public void response(String function, String value) {
 
 	}
 }

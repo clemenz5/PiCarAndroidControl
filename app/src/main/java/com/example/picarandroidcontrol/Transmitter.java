@@ -70,4 +70,28 @@ public class Transmitter {
 		});
 		queue.add(stringRequest);
 	}
+
+	public void getSoundSensorValue(final RespondInterface respondInterface){
+		String url = "http://" + ip + ":" + port + "/soundSensorValue";
+		StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+				new Response.Listener<String>() {
+					@Override
+					public void onResponse(String response) {
+						respondInterface.response("soundSensorValue", response);
+					}
+				}, new Response.ErrorListener() {
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				error.printStackTrace();
+			}
+		});
+
+		queue.cancelAll(new RequestQueue.RequestFilter() {
+			@Override
+			public boolean apply(Request<?> request) {
+				return true;
+			}
+		});
+		queue.add(stringRequest);
+	}
 }
