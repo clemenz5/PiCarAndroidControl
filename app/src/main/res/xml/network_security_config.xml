@@ -6,6 +6,8 @@
         <domain includeSubdomains="true">192.168.178.115</domain>
         <domain includeSubdomains="true">192.168.0.100</domain>
         <domain includeSubdomains="true">192.168.0.184</domain>
+        <domain includeSubdomains="true">192.168.0.149</domain>
+        <domain includeSubdomains="true">192.168.4.1</domain>
         <domain includeSubdomains="true">\[fe80::ba27:ebff:fea2:add8\]</domain>
 
     </domain-config>

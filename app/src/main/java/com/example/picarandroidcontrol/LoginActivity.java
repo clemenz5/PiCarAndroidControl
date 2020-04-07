@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
 	private EditText portInput;
 	private Button loginBtn;
 	private RequestQueue queue;
+	private final static String TAG = LoginActivity.class.getSimpleName();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
 			@Override
 			public void onClick(View v) {
 				String url = "http://" + ipInput.getText().toString() + ":" + portInput.getText().toString() + "/check";
+				Log.d(TAG, "trying to connect to url: " + url);
 				StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
 						new Response.Listener<String>() {
 							@Override
