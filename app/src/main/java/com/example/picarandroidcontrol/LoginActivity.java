@@ -54,11 +54,14 @@ public class LoginActivity extends AppCompatActivity {
 									}
 									intent.putExtra("port", portInput.getText().toString());
 									startActivity(intent);
+								} else {
+									Toast.makeText(LoginActivity.this, "Login fehlgeschlagen", Toast.LENGTH_SHORT).show();
 								}
 							}
 						}, new Response.ErrorListener() {
 					@Override
 					public void onErrorResponse(VolleyError error) {
+						Toast.makeText(LoginActivity.this, "Login fehlgeschlagen", Toast.LENGTH_SHORT).show();
 						error.printStackTrace();
 					}
 				});
